@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Image Slice &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../index.html" />
+    <link rel="up" title="Image Input and Output" href="code.html" />
+    <link rel="next" title="Binary Image Labeler" href="bii.html" />
+    <link rel="prev" title="Image Input and Output" href="code.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bii.html" title="Binary Image Labeler"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="Image Input and Output"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Image Input and Output</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ImageSlice">
+<span id="image-slice"></span><h1>Image Slice<a class="headerlink" href="#module-ImageSlice" title="Permalink to this headline">¶</a></h1>
+<p>The image slice offers up a view of the image that 
+allows one to access the value of the various 
+intensity values of the grayscale image.
+One can also access the locations of the object and
+background seeds</p>
+<dl class="class">
+<dt id="ImageSlice.ImageInterface">
+<em class="property">class </em><tt class="descclassname">ImageSlice.</tt><tt class="descname">ImageInterface</tt><big>(</big><em>image_array</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>The image slice offers up a view of the image that 
+allows one to access the value of the various 
+intensity values of the grayscale image.
+One can also access the locations of the object and
+background seeds</p>
+<p>It is initialized with the various grayscale values 
+of the various pixels.  Then it is imprinted with 
+the image features of the source and the sink</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="14%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>image_array</td>
+<td>nparray</td>
+<td>Array of image intensity values</td>
+</tr>
+<tr class="row-even"><td>seed_array</td>
+<td>nparray</td>
+<td>Array of source and sink flags</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ImageSlice.ImageInterface.add_background_seed">
+<tt class="descname">add_background_seed</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface.add_background_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marks the pixel as being a background seed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote class="last">
+<div><p>Pixel coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageSlice.ImageInterface.add_object_seed">
+<tt class="descname">add_object_seed</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface.add_object_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marks the pixel as being an object seed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote class="last">
+<div><p>Pixel coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageSlice.ImageInterface.get_neighbor_pixels">
+<tt class="descname">get_neighbor_pixels</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface.get_neighbor_pixels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets neighboring pixels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Pixel coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>list</strong> :</p>
+<blockquote class="last">
+<div><p>List of neighboring pixels</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageSlice.ImageInterface.get_observation">
+<tt class="descname">get_observation</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface.get_observation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the pixel value at the given coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Pixel coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>Intensity value</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageSlice.ImageInterface.is_background_seed">
+<tt class="descname">is_background_seed</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface.is_background_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the pixel contains object seed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Pixel coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>bool</strong> :</p>
+<blockquote class="last">
+<div><p>Whether pixel contains background seed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageSlice.ImageInterface.is_object_seed">
+<tt class="descname">is_object_seed</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ImageSlice.ImageInterface.is_object_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the pixel contains object seed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Pixel coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>bool</strong> :</p>
+<blockquote class="last">
+<div><p>Whether pixel contains object seed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="code.html"
+                        title="previous chapter">Image Input and Output</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bii.html"
+                        title="next chapter">Binary Image Labeler</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/image_definition/isl.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bii.html" title="Binary Image Labeler"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="Image Input and Output"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Image Input and Output</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

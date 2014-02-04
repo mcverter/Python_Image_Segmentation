@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Classification Universe &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Statistical Elements:" href="code.html" />
+    <link rel="next" title="Estimators:" href="../estimators/code.html" />
+    <link rel="prev" title="Classification Class" href="clc.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../estimators/code.html" title="Estimators:"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="clc.html" title="Classification Class"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Statistical Elements:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ClassificationUniverse">
+<span id="classification-universe"></span><h1>Classification Universe<a class="headerlink" href="#module-ClassificationUniverse" title="Permalink to this headline">¶</a></h1>
+<p>Entire Classification Region</p>
+<p>The Classification Univerese is used  to coordinate 
+the various classification classes in a 
+classification task.</p>
+<dl class="class">
+<dt id="ClassificationUniverse.ClassificationUniverse">
+<em class="property">class </em><tt class="descclassname">ClassificationUniverse.</tt><tt class="descname">ClassificationUniverse</tt><big>(</big><em>name='foo'</em>, <em>distance_function=&lt;class 'DistanceFunction.Euclid'&gt;</em><big>)</big><a class="headerlink" href="#ClassificationUniverse.ClassificationUniverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entire Classification Region</p>
+<p>The Classification Univerese is used  to coordinate 
+the various classification classes in a 
+classification task.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="19%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>name</li>
+</ol>
+</td>
+<td>str</td>
+<td>Name of the universe</td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="2">
+<li>classification_classes:  array</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+<td>Collection of classification classes</td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>total_samples_qty</li>
+</ol>
+</td>
+<td>int</td>
+<td>Total number of samples for all classes</td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="4">
+<li>global_statistical_measures</li>
+</ol>
+</td>
+<td>StatisticalMeasures</td>
+<td>Global statistical measures of probability</td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>distance_function</li>
+</ol>
+</td>
+<td>function</td>
+<td>Function for determining distance between samples</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ClassificationUniverse.ClassificationUniverse.add_classification_class">
+<tt class="descname">add_classification_class</tt><big>(</big><em>classification_class</em><big>)</big><a class="headerlink" href="#ClassificationUniverse.ClassificationUniverse.add_classification_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds classification class and recalculates global stats</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>classification_class</strong> : ClassificationClass</p>
+<blockquote class="last">
+<div><p>Added class</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ClassificationUniverse.ClassificationUniverse.update_global_statistics">
+<tt class="descname">update_global_statistics</tt><big>(</big><em>classification_class</em><big>)</big><a class="headerlink" href="#ClassificationUniverse.ClassificationUniverse.update_global_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recalculates global statistics</p>
+<p>When a new class is added, the global statistical
+model must be recomputed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>classification_class</strong> : ClassificationClass</p>
+<blockquote class="last">
+<div><p>Added class</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="clc.html"
+                        title="previous chapter">Classification Class</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../estimators/code.html"
+                        title="next chapter">Estimators:</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/statisticalelements/clu.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../estimators/code.html" title="Estimators:"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="clc.html" title="Classification Class"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Statistical Elements:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

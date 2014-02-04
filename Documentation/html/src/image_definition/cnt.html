@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contour Tracer &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../index.html" />
+    <link rel="up" title="Image Input and Output" href="code.html" />
+    <link rel="next" title="Image Creator" href="imc.html" />
+    <link rel="prev" title="Binary Image Labeler" href="bii.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imc.html" title="Image Creator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bii.html" title="Binary Image Labeler"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Image Input and Output</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ContourTracer">
+<span id="contour-tracer"></span><h1>Contour Tracer<a class="headerlink" href="#module-ContourTracer" title="Permalink to this headline">¶</a></h1>
+<p>The contour tracer is responsible for 
+determining a set of contours for an image.</p>
+<p>Given a 2D array of points, it analyses these points 
+and returns a set of contours for the image.</p>
+<dl class="class">
+<dt id="ContourTracer.ContourTracer">
+<em class="property">class </em><tt class="descclassname">ContourTracer.</tt><tt class="descname">ContourTracer</tt><a class="headerlink" href="#ContourTracer.ContourTracer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The contour tracer is responsible for 
+determining a set of contours for an image.</p>
+<p>Given a 2D array of points, it analyses these points 
+and returns a set of contours for the image.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="15%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>image</td>
+<td>nparray</td>
+<td>Image being analyzed</td>
+</tr>
+<tr class="row-even"><td>mask</td>
+<td>nparray</td>
+<td>Image with defined contours</td>
+</tr>
+<tr class="row-odd"><td>xnow, ynow</td>
+<td>int</td>
+<td>Indexes of pixel being analyzed</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ContourTracer.ContourTracer.get_contour_point">
+<tt class="descname">get_contour_point</tt><big>(</big><big>)</big><a class="headerlink" href="#ContourTracer.ContourTracer.get_contour_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds next contour point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>bool</strong> :</p>
+<blockquote>
+<div><p>Whether a contour point search could be started</p>
+</div></blockquote>
+<p><strong>int, int</strong> :</p>
+<blockquote class="last">
+<div><p>Sets the global xnow, ynow coordinates of the point</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ContourTracer.ContourTracer.get_start">
+<tt class="descname">get_start</tt><big>(</big><big>)</big><a class="headerlink" href="#ContourTracer.ContourTracer.get_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the next possible start for contour point search</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>bool</strong> :</p>
+<blockquote>
+<div><p>Whether a contour point search could be started</p>
+</div></blockquote>
+<p><strong>int, int</strong> :</p>
+<blockquote class="last">
+<div><p>Sets the global xnow, ynow coordinates of the point</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ContourTracer.ContourTracer.is_point_on_boundary">
+<tt class="descname">is_point_on_boundary</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#ContourTracer.ContourTracer.is_point_on_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether point is already within other points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Coordinates of point</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>bool</strong> :</p>
+<blockquote class="last">
+<div><p>Whether point is on boundary or not</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ContourTracer.ContourTracer.trace_contours">
+<tt class="descname">trace_contours</tt><big>(</big><big>)</big><a class="headerlink" href="#ContourTracer.ContourTracer.trace_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traces the contours of the given image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>nparray</strong> :</p>
+<blockquote class="last">
+<div><p>A set of contour points</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bii.html"
+                        title="previous chapter">Binary Image Labeler</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="imc.html"
+                        title="next chapter">Image Creator</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/image_definition/cnt.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="imc.html" title="Image Creator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bii.html" title="Binary Image Labeler"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Image Input and Output</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

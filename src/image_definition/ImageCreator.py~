@@ -1,0 +1,25 @@
+class ImageCreator(object):
+    def __init__(self):
+        return
+
+
+    def construct_image (self, partition):
+        ''' 
+        This function reconstructs an image based upon the output
+        from the graph cut
+       
+        masked_partition = mask_partition(partition)
+
+        labeled_image = binary_image_labeler.label_component(masked_partition)
+        
+        object_seeds = binary_image_labeler.extract_object_seeds(labeled_image)
+        
+        
+        boundary_contour = extract_boundary_contour = tracer.trace(partition)
+
+        cleaned_contours = clean_contours(boundary_contour)
+        #polygons = create_polygons(boundary_contours)
+        drawcontours(cleaned_contours)
+        save_segmented_image(cleaned_contours)
+        '''
+        return 1

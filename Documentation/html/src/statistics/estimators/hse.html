@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Histogram Estimator &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Estimators:" href="code.html" />
+    <link rel="next" title="Kernel Estimator" href="kere.html" />
+    <link rel="prev" title="Probability Density Function Estimator" href="pdfe.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="kere.html" title="Kernel Estimator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pdfe.html" title="Probability Density Function Estimator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-HistogramEstimator">
+<span id="histogram-estimator"></span><h1>Histogram Estimator<a class="headerlink" href="#module-HistogramEstimator" title="Permalink to this headline">¶</a></h1>
+<p>Estimates the classification class membership of a given value</p>
+<dl class="class">
+<dt id="HistogramEstimator.Histogram">
+<em class="property">class </em><tt class="descclassname">HistogramEstimator.</tt><tt class="descname">Histogram</tt><big>(</big><em>hist_bins</em><big>)</big><a class="headerlink" href="#HistogramEstimator.Histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Models the probability distribution of a classification.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="29%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>hist_bins</td>
+<td>array of HistogramBin</td>
+<td>The bins contained within the model</td>
+</tr>
+<tr class="row-even"><td>total_elements</td>
+<td>int</td>
+<td>Total number of elements in Histogram</td>
+</tr>
+<tr class="row-odd"><td>total_weight</td>
+<td>float</td>
+<td>Total weight of elements in histogram</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="HistogramEstimator.Histogram.add_bins">
+<tt class="descname">add_bins</tt><big>(</big><em>hist_bins</em><big>)</big><a class="headerlink" href="#HistogramEstimator.Histogram.add_bins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a set of bins to the histogram</p>
+<p>Appends the new bins and recalculates the
+total_elements and total_weight.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>hist_bins</strong> : array of HistogramBin</p>
+<blockquote class="last">
+<div><p>Bins being added to the Histogram</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="HistogramEstimator.Histogram.add_element">
+<tt class="descname">add_element</tt><big>(</big><em>index</em>, <em>weight</em><big>)</big><a class="headerlink" href="#HistogramEstimator.Histogram.add_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a weighted element to the histogram at the given index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>index</strong> : int</p>
+<blockquote>
+<div><p>Index of the bin</p>
+</div></blockquote>
+<p><strong>weight</strong> : float</p>
+<blockquote class="last">
+<div><p>Weight of the element</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="HistogramEstimator.Histogram.make_average_shifted_histogram">
+<tt class="descname">make_average_shifted_histogram</tt><big>(</big><big>)</big><a class="headerlink" href="#HistogramEstimator.Histogram.make_average_shifted_histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the raw histogram to an Average Shifted Histogram</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>Histogram</strong> :</p>
+<blockquote class="last">
+<div><p>A Histogram which has been shifted to fit the data</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="HistogramEstimator.HistogramBin">
+<em class="property">class </em><tt class="descclassname">HistogramEstimator.</tt><tt class="descname">HistogramBin</tt><a class="headerlink" href="#HistogramEstimator.HistogramBin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A bin for placing samples in.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="9%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>width</td>
+<td>float</td>
+<td>The size of the bin</td>
+</tr>
+<tr class="row-even"><td>qty</td>
+<td>int</td>
+<td>Number of elements in bin</td>
+</tr>
+<tr class="row-odd"><td>weight</td>
+<td>float</td>
+<td>Total weight contained in the bin
+(Different elements may have different weights)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="HistogramEstimator.HistogramEstimator">
+<em class="property">class </em><tt class="descclassname">HistogramEstimator.</tt><tt class="descname">HistogramEstimator</tt><a class="headerlink" href="#HistogramEstimator.HistogramEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the classification class membership of a given value</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>histogram</td>
+<td>Histogram</td>
+<td>Stores the samples</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="HistogramEstimator.HistogramEstimator.estimate">
+<tt class="descname">estimate</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#HistogramEstimator.HistogramEstimator.estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the class membership of a given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>value</strong> : float</p>
+<blockquote>
+<div><p>Value of sample</p>
+</div></blockquote>
+<p><strong>int</strong> :</p>
+<blockquote class="last">
+<div><p>Classification Class ID</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pdfe.html"
+                        title="previous chapter">Probability Density Function Estimator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="kere.html"
+                        title="next chapter">Kernel Estimator</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/estimators/hse.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="kere.html" title="Kernel Estimator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pdfe.html" title="Probability Density Function Estimator"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

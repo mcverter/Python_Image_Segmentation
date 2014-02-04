@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Classification Class &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Statistical Elements:" href="code.html" />
+    <link rel="next" title="Classification Universe" href="clu.html" />
+    <link rel="prev" title="Distance Function" href="dtf.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="clu.html" title="Classification Universe"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dtf.html" title="Distance Function"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Statistical Elements:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ClassificationClass">
+<span id="classification-class"></span><h1>Classification Class<a class="headerlink" href="#module-ClassificationClass" title="Permalink to this headline">¶</a></h1>
+<p>Class for a pattern classification task</p>
+<p>Represents the statistical profile for a possible
+classification within a classification task</p>
+<dl class="class">
+<dt id="ClassificationClass.ClassificationClass">
+<em class="property">class </em><tt class="descclassname">ClassificationClass.</tt><tt class="descname">ClassificationClass</tt><a class="headerlink" href="#ClassificationClass.ClassificationClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for a pattern classification task</p>
+<p>Represents the statistical profile for a possible
+classification within a classification task</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="21%" />
+<col width="57%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>name</td>
+<td>str</td>
+<td>Name of the class</td>
+</tr>
+<tr class="row-even"><td>training_samples</td>
+<td>array</td>
+<td>Representative samples for the classification</td>
+</tr>
+<tr class="row-odd"><td>statistical_measures</td>
+<td>StatisticalMeasures</td>
+<td>Statistical Measures of class probability distribution</td>
+</tr>
+<tr class="row-even"><td>a_priori_probability</td>
+<td>float</td>
+<td>A priori probability of the class</td>
+</tr>
+<tr class="row-odd"><td>maximum_distance</td>
+<td>float</td>
+<td>Maximum distance between samples</td>
+</tr>
+<tr class="row-even"><td>window_width</td>
+<td>float</td>
+<td>Window width for histogram estimation</td>
+</tr>
+<tr class="row-odd"><td>bandwidth</td>
+<td>float</td>
+<td>Band width for kernel estimation</td>
+</tr>
+<tr class="row-even"><td>likelihood</td>
+<td>float</td>
+<td>Class conditional probability, given a sample</td>
+</tr>
+<tr class="row-odd"><td>p_x</td>
+<td>float</td>
+<td>Estimated probability for a sample in this class</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ClassificationClass.ClassificationClass.add_sample">
+<tt class="descname">add_sample</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#ClassificationClass.ClassificationClass.add_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add to training samples and recalculate stats</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><strong>value</strong> : float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ClassificationClass.ClassificationClass.initialize">
+<tt class="descname">initialize</tt><big>(</big><em>name</em>, <em>statistical_measures</em>, <em>training_samples</em>, <em>a_priori_probability</em>, <em>bandwidth</em>, <em>likelihood</em>, <em>p_x</em><big>)</big><a class="headerlink" href="#ClassificationClass.ClassificationClass.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>initializes member variables with known values</p>
+<p>Initializes a classificaiton with  a known 
+set of statistical characteristics and a known 
+collection of samples</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name of the class</p>
+</div></blockquote>
+<p><strong>training_samples</strong> :  array</p>
+<blockquote>
+<div><p>Representative samples for the classification</p>
+</div></blockquote>
+<p><strong>statistical_measures</strong> :  StatisticalMeasures</p>
+<blockquote>
+<div><p>Statistical Measures of class probability distribution</p>
+</div></blockquote>
+<p><strong>a_priori_probability</strong> : float</p>
+<blockquote>
+<div><p>A priori probability of the class</p>
+</div></blockquote>
+<p><strong>maximum_distance</strong> :   float</p>
+<blockquote>
+<div><p>Maximum distance between samples</p>
+</div></blockquote>
+<p><strong>window_width</strong> : float</p>
+<blockquote>
+<div><p>Window width for histogram estimation</p>
+</div></blockquote>
+<p><strong>bandwidth</strong> : float</p>
+<blockquote>
+<div><p>Band width for kernel estimation</p>
+</div></blockquote>
+<p><strong>likelihood</strong> : float</p>
+<blockquote>
+<div><p>Class conditional probability, given a sample</p>
+</div></blockquote>
+<p><strong>p_x</strong> : float</p>
+<blockquote class="last">
+<div><p>Estimated probability for a sample in this class</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dtf.html"
+                        title="previous chapter">Distance Function</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="clu.html"
+                        title="next chapter">Classification Universe</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/statisticalelements/clc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="clu.html" title="Classification Universe"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dtf.html" title="Distance Function"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Statistical Elements:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

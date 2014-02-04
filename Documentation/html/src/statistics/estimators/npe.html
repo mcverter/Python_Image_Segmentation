@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Non-Parametric Estimator &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Estimators:" href="code.html" />
+    <link rel="next" title="MAP CRF Estimator" href="mce.html" />
+    <link rel="prev" title="Kernel Estimator" href="kere.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mce.html" title="MAP CRF Estimator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kere.html" title="Kernel Estimator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-NonParametricEstimator">
+<span id="non-parametric-estimator"></span><h1>Non-Parametric Estimator<a class="headerlink" href="#module-NonParametricEstimator" title="Permalink to this headline">¶</a></h1>
+<p>Estimates the class membership of a given sample</p>
+<p>The Non Parametric Probability Density Estimator
+combines a histogram estimator and a kernel estimator
+to build a non parametric estimation model</p>
+<dl class="class">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator">
+<em class="property">class </em><tt class="descclassname">NonParametricEstimator.</tt><tt class="descname">NonParametricProbabilityDensityEstimator</tt><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the class membership of a given sample</p>
+<p>The Non Parametric Probability Density Estimator
+combines a histogram estimator and a kernel estimator
+to build a non parametric estimation model</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="24%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>kernel_estimator</td>
+<td>KernelEstimator</td>
+<td>For estimating sample&#8217;s class membership</td>
+</tr>
+<tr class="row-even"><td>histogram_estimator</td>
+<td>HistogramEstimator</td>
+<td>For estimating sample&#8217;s class membership</td>
+</tr>
+<tr class="row-odd"><td>classification_class</td>
+<td>ClassificationClass</td>
+<td>The class whose likelihood is being estimated</td>
+</tr>
+<tr class="row-even"><td>classification_universe</td>
+<td>ClassificationUniverse</td>
+<td>The entire domain of classification</td>
+</tr>
+<tr class="row-odd"><td>maximum_distance</td>
+<td>float</td>
+<td>Maxiumum possible distance between samples</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator.add_sample">
+<tt class="descname">add_sample</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator.add_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a sample to the classification class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>value</strong> : float</p>
+<blockquote class="last">
+<div><p>Value being added to class</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator.convert_to_histogram">
+<tt class="descname">convert_to_histogram</tt><big>(</big><em>bins</em>, <em>do_average_shift</em><big>)</big><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator.convert_to_histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the estimation by using a Histogram</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>bins</strong> : Array of HistogramBins</p>
+<blockquote>
+<div><p>Bins that constitute the Histogram</p>
+</div></blockquote>
+<p><strong>do_average_shift</strong> : boolean</p>
+<blockquote class="last">
+<div><p>Whether to make an Average Shifted Histogram</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator.estimate">
+<tt class="descname">estimate</tt><big>(</big><em>value</em>, <em>is_sample_new=False</em><big>)</big><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator.estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the class membership of a given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>value</strong> : float</p>
+<blockquote>
+<div><p>Value of sample</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>int</strong> :</p>
+<blockquote class="last">
+<div><p>Classification Class ID</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator.initialize_classification">
+<tt class="descname">initialize_classification</tt><big>(</big><em>classification_class</em>, <em>classification_universe</em><big>)</big><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator.initialize_classification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes classification class and universe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>classification_class</strong> : ClassificationClass</p>
+<blockquote>
+<div><p>The class whose likelihood is being estimated</p>
+</div></blockquote>
+<p><strong>classification_universe</strong> : ClassificationUniverse</p>
+<blockquote class="last">
+<div><p>The entire domain of classification</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator.recalculate_statistics">
+<tt class="descname">recalculate_statistics</tt><big>(</big><big>)</big><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator.recalculate_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinitializes global stats of classification domain</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NonParametricEstimator.NonParametricProbabilityDensityEstimator.set_maximum_distance">
+<tt class="descname">set_maximum_distance</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#NonParametricEstimator.NonParametricProbabilityDensityEstimator.set_maximum_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the maximum possible distance between samples
+Parameters
+&#8212;&#8212;&#8212;-
+value : float</p>
+<blockquote>
+<div>The maximum window width</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="kere.html"
+                        title="previous chapter">Kernel Estimator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mce.html"
+                        title="next chapter">MAP CRF Estimator</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/estimators/npe.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mce.html" title="MAP CRF Estimator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="kere.html" title="Kernel Estimator"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

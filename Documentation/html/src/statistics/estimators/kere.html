@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Kernel Estimator &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Estimators:" href="code.html" />
+    <link rel="next" title="Non-Parametric Estimator" href="npe.html" />
+    <link rel="prev" title="Histogram Estimator" href="hse.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="npe.html" title="Non-Parametric Estimator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hse.html" title="Histogram Estimator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-KernelEstimator">
+<span id="kernel-estimator"></span><h1>Kernel Estimator<a class="headerlink" href="#module-KernelEstimator" title="Permalink to this headline">¶</a></h1>
+<p>Determines classification class of a sample</p>
+<p>Determines sample&#8217;s classificationbased upon the Kernel
+Density of the population</p>
+<dl class="class">
+<dt id="KernelEstimator.KernelEstimator">
+<em class="property">class </em><tt class="descclassname">KernelEstimator.</tt><tt class="descname">KernelEstimator</tt><a class="headerlink" href="#KernelEstimator.KernelEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines classification class of a sample</p>
+<p>Determines sample&#8217;s classificationbased upon the Kernel
+Density of the population</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="27%" />
+<col width="45%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>classification_universe</td>
+<td>ClassificationUniverse</td>
+<td>The classification domain of the task</td>
+</tr>
+<tr class="row-even"><td>kernel_function</td>
+<td>function</td>
+<td>The function for kernel measurement</td>
+</tr>
+<tr class="row-odd"><td>percent_window_width</td>
+<td>float</td>
+<td>Ratio for kernel bins</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="KernelEstimator.KernelEstimator.estimate">
+<tt class="descname">estimate</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#KernelEstimator.KernelEstimator.estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the class conditional and unconditional densities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>value</strong> : float</p>
+<blockquote class="last">
+<div><p>The sample being evaluated</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="KernelEstimator.KernelEstimator.initialize">
+<tt class="descname">initialize</tt><big>(</big><em>classification_universe</em>, <em>kernel_type</em><big>)</big><a class="headerlink" href="#KernelEstimator.KernelEstimator.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes classification universe and kernel function</p>
+<p>Initializes classification universe and kernel function.
+Also sets bandwidth and window width of classification classes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>classification_universe</strong> : ClassificationUniverse</p>
+<blockquote>
+<div><p>The classification domain of the task</p>
+</div></blockquote>
+<p><strong>kernel_function</strong> :  function</p>
+<blockquote class="last">
+<div><p>The function for kernel measurement</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="KernelEstimator.KernelEstimator.set_percent_window_width">
+<tt class="descname">set_percent_window_width</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#KernelEstimator.KernelEstimator.set_percent_window_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the relative window widths of kernel bins</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>value</strong> : float</p>
+<blockquote class="last">
+<div><p>The percent window width</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="KernelEstimator.exponential">
+<tt class="descclassname">KernelEstimator.</tt><tt class="descname">exponential</tt><big>(</big><em>point_1</em>, <em>point_2</em>, <em>threshold</em>, <em>quotient</em><big>)</big><a class="headerlink" href="#KernelEstimator.exponential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weight function for exponential kernels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>point_1, point_2</strong> : Node</p>
+<blockquote>
+<div><p>Coordinate pair on graph</p>
+</div></blockquote>
+<p><strong>threshhold</strong> :  float</p>
+<blockquote>
+<div><p>For evaluating value importance</p>
+</div></blockquote>
+<p><strong>quotient</strong> :  float</p>
+<blockquote>
+<div><p>For weighing sample values</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>Sample&#8217;s adjusted weight</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="KernelEstimator.gaussian">
+<tt class="descclassname">KernelEstimator.</tt><tt class="descname">gaussian</tt><big>(</big><em>point_1</em>, <em>point_2</em>, <em>threshold</em>, <em>quotient</em><big>)</big><a class="headerlink" href="#KernelEstimator.gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weight function for gaussian kernels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>point_1, point_2</strong> : Node</p>
+<blockquote>
+<div><p>Coordinate pair on graph</p>
+</div></blockquote>
+<p><strong>threshhold</strong> :  float</p>
+<blockquote>
+<div><p>For evaluating value importance</p>
+</div></blockquote>
+<p><strong>quotient</strong> :  float</p>
+<blockquote>
+<div><p>For weighing sample values</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>Sample&#8217;s adjusted weight</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="KernelEstimator.hypertriangle">
+<tt class="descclassname">KernelEstimator.</tt><tt class="descname">hypertriangle</tt><big>(</big><em>point_1</em>, <em>point_2</em>, <em>threshold</em>, <em>quotient</em><big>)</big><a class="headerlink" href="#KernelEstimator.hypertriangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weight function for hypertriangle kernels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>point_1, point_2</strong> : Node</p>
+<blockquote>
+<div><p>Coordinate pair on graph</p>
+</div></blockquote>
+<p><strong>threshhold</strong> :  float</p>
+<blockquote>
+<div><p>For evaluating value importance</p>
+</div></blockquote>
+<p><strong>quotient</strong> :  float</p>
+<blockquote>
+<div><p>For weighing sample values</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>Sample&#8217;s adjusted weight</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="KernelEstimator.lorenz">
+<tt class="descclassname">KernelEstimator.</tt><tt class="descname">lorenz</tt><big>(</big><em>point_1</em>, <em>point_2</em>, <em>threshold</em>, <em>quotient</em><big>)</big><a class="headerlink" href="#KernelEstimator.lorenz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weight function for lorenz kernels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>point_1, point_2</strong> : Node</p>
+<blockquote>
+<div><p>Coordinate pair on graph</p>
+</div></blockquote>
+<p><strong>threshhold</strong> :  float</p>
+<blockquote>
+<div><p>For evaluating value importance</p>
+</div></blockquote>
+<p><strong>quotient</strong> :  float</p>
+<blockquote>
+<div><p>For weighing sample values</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>Sample&#8217;s adjusted weight</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hse.html"
+                        title="previous chapter">Histogram Estimator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="npe.html"
+                        title="next chapter">Non-Parametric Estimator</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/estimators/kere.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="npe.html" title="Non-Parametric Estimator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hse.html" title="Histogram Estimator"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

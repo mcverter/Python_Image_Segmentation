@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Perform Graph Cut &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../index.html" />
+    <link rel="up" title="Graph Cut:" href="code.html" />
+    <link rel="prev" title="ST Cut" href="stc.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stc.html" title="ST Cut"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Graph Cut:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-PerformGraphCut">
+<span id="perform-graph-cut"></span><h1>Perform Graph Cut<a class="headerlink" href="#module-PerformGraphCut" title="Permalink to this headline">¶</a></h1>
+<p>This is the main driver class for the graph cut program.</p>
+<p>It takes in a raw ImageSlice and markings of the object
+and the background regions.</p>
+<p>From these inputs, it outputs a fully segmented image.</p>
+<dl class="class">
+<dt id="PerformGraphCut.PerformGraphCut">
+<em class="property">class </em><tt class="descclassname">PerformGraphCut.</tt><tt class="descname">PerformGraphCut</tt><a class="headerlink" href="#PerformGraphCut.PerformGraphCut" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main driver class for the graph cut program.</p>
+<p>It takes in a raw ImageSlice and markings of the object
+and the background regions.</p>
+<p>From these inputs, it outputs a fully segmented image.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="20%" />
+<col width="57%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>crf_lambda</td>
+<td>float</td>
+<td>Constant for CRF calculations</td>
+</tr>
+<tr class="row-even"><td>sigma</td>
+<td>float</td>
+<td>Constant for Boykov calculations</td>
+</tr>
+<tr class="row-odd"><td>bin_qty</td>
+<td>int</td>
+<td>Constant for histogram estimation</td>
+</tr>
+<tr class="row-even"><td>bin_size</td>
+<td>int</td>
+<td>Constant for histogram estimatio</td>
+</tr>
+<tr class="row-odd"><td>do_only_boundary</td>
+<td>bool</td>
+<td>Only train boundary</td>
+</tr>
+<tr class="row-even"><td>do_regional_training</td>
+<td>bool</td>
+<td>Train regional estimators</td>
+</tr>
+<tr class="row-odd"><td>do_boundary_training</td>
+<td>bool</td>
+<td>Train boundary estimators</td>
+</tr>
+<tr class="row-even"><td>object_seeds</td>
+<td>list</td>
+<td>Array of object seeds</td>
+</tr>
+<tr class="row-odd"><td>background_seeds</td>
+<td>list</td>
+<td>Array of background seeds</td>
+</tr>
+<tr class="row-even"><td>image_interface</td>
+<td>ImageInterface</td>
+<td>Provider of pixel intensity information</td>
+</tr>
+<tr class="row-odd"><td>framework</td>
+<td>GraphCutFramework</td>
+<td>Coordinates the image with the regional estimators</td>
+</tr>
+<tr class="row-even"><td>segmentation</td>
+<td>STCut</td>
+<td>Executes the graph cut algorithm</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="PerformGraphCut.PerformGraphCut.perform_cut">
+<tt class="descname">perform_cut</tt><big>(</big><em>img_file</em>, <em>object_file</em>, <em>background_file</em><big>)</big><a class="headerlink" href="#PerformGraphCut.PerformGraphCut.perform_cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function produces a regionally segmented image</p>
+<p>It takes in a raw ImageSlice and markings of 
+the object and the background regions.</p>
+<p>From these inputs, it outputs a fully 
+segmented image.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stc.html"
+                        title="previous chapter">ST Cut</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/graphcut/pgc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stc.html" title="ST Cut"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Graph Cut:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

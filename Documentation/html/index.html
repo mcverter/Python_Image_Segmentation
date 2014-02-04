@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Python_Saass’s documentation! &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="#" />
+    <link rel="next" title="Statistical Elements:" href="src/statistics/statisticalelements/code.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="src/statistics/statisticalelements/code.html" title="Statistical Elements:"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">Python_Saass 0.777 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-python-saass-s-documentation">
+<h1>Welcome to Python_Saass&#8217;s documentation!<a class="headerlink" href="#welcome-to-python-saass-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is an implementation of the SAASS algorithm in native Python code</p>
+<blockquote>
+<div><p>The SAASS implementation of Graph Cut propagates the classifications of various bodily regions through all of the 2D slices within the 3D medical image</p>
+<p>The user of SAASS will be required to traverse through the various slices of the 3D image in order to verify that each has been correctly regimented</p>
+<p>If the segmentation is incorrect, the user can retrain the graph cut algorithm by inputting new brush strokes to reinforce regional distinctions.</p>
+</div></blockquote>
+<p>Requirements: numpy dicom</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/statistics/statisticalelements/code.html">Statistical Elements:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/statisticalelements/stm.html">Statistical Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/statisticalelements/dtf.html">Distance Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/statisticalelements/clc.html">Classification Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/statisticalelements/clu.html">Classification Universe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/statistics/estimators/code.html">Estimators:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/estimators/pdfe.html">Probability Density Function Estimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/estimators/hse.html">Histogram Estimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/estimators/kere.html">Kernel Estimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/estimators/npe.html">Non-Parametric Estimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/estimators/mce.html">MAP CRF Estimator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/statistics/frameworks/code.html">Frameworks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/frameworks/gcf.html">Graph Cut Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/frameworks/bkf.html">Boykov Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/statistics/frameworks/mcf.html">MAP CRF Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/image_definition/code.html">Image Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/image_definition/isl.html">Image Slice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/image_definition/bii.html">Binary Image Labeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/image_definition/cnt.html">Contour Tracer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/image_definition/imc.html">Image Creator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/image_definition/ttt.html">Threshold Tracker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/graphcut/code.html">Graph Cut:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/graphcut/bkc.html">Boykov Kolmogorov Cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/graphcut/stc.html">ST Cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/graphcut/pgc.html">Perform Graph Cut</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Here is an example of SAASS in action:</p>
+<p>Given the brainscan:</p>
+<img alt="_images/Brainstem_img_044.png" src="_images/Brainstem_img_044.png" />
+<p>One applys brushes to indicate the different regions:</p>
+<img alt="_images/Brainstem_img_044_brushes4.png" src="_images/Brainstem_img_044_brushes4.png" />
+<p>And one a segmentation is produced:</p>
+<img alt="_images/brainstem_img_044_seg2.png" src="_images/brainstem_img_044_seg2.png" />
+<p>References:</p>
+<hr class="docutils" />
+<p>SAASS</p>
+<hr class="docutils" />
+<p>Hua,Mageras Grossberg, et al (2012) Interactive semiautomatic contour delineation using statistical conditional random fields framework</p>
+<p>Hu, Grossberg, Magerals (2008) Semi-Automatic Medical Image Segmentation with Adaptive Local Statistics in Conditional Random Fields Framework</p>
+<p>Graph Cut</p>
+<hr class="docutils" />
+<p>Cormen, Rivest, et al Algorithms &#8211; chapter on Graph Cuts/Ford-Fulkerson.</p>
+<p>Toby Collins (2004) Graph Cut Matching In Computer Vision</p>
+<blockquote>
+<div>Vladimir Kolmogorov,  and Ramin Zabih,  (2004) What Energy Functions Can Be Minimized via Graph Cuts?  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 26, NO. 2.</div></blockquote>
+<p>D Greig, B. Porteous, and A. Seheult. (1989) Exact maximum a posteriori estimation for binary images.  Journal of Royal Statistical Society, Series B, vol. 51, no. 2, pp. 271-279.</p>
+<blockquote>
+<div><p>Boykov and Funka-Lea Graph Cuts and Efficient N-D Image Segmentation (2006) . International Journal of Computer Vision 70, 109–131.</p>
+<p>Boykov and Jolly Interactive Graph Cuts for Optimal Boundary &amp; Region Segmentation of Objects in N-D Images (2001).  Proceedings of “Internation Conference on Computer Vision”, Vancouver, Canada.</p>
+<p>Yuri Boykov and Vladimir Kolmogorov (2004) An Experimental  Comparison of Min-Cut/Max-Flow Algorithms for Energy Minimization in Vision  In IEEE Transactions on PAMI, Vol. 26, No. 9, pp. 1124-1137.</p>
+</div></blockquote>
+<p>Conditional Random Fields</p>
+<hr class="docutils" />
+<blockquote>
+<div><p>John Lafferty, Andrew McCallum, Fernando Pereira (2001). Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data. In International Conference on Machine Learning.</p>
+<p>Roman Klinger, Katrin Tomanek (2007) Classical Probabilistic Models and Conditional Random Fields.  (Algorithm Engineering Report TR07-2-013)</p>
+<p>Charles Sutton and Andrew McCallum (2005). An Introduction to Conditional Random Fields for Relational Learning</p>
+<p>Hanna M. Wallach (2004) Conditional Random Fields: An Introduction  (University of Pennsylvania CIS Technical Report MS-CIS-04-21)</p>
+</div></blockquote>
+<p>Statistics</p>
+<hr class="docutils" />
+<p>Duda, et al.  Pattern Recognition</p>
+<p>In particular, Ch 1 (introduction); Ch 2(Bayesian Decision Theory); Ch 3 (Mximum Likelihood and Bayesian Parameter Estimation); Ch 4 (Nonparametric Techniques)</p>
+<p>Probabilistic Graphical Models: Stanford Online course</p>
+<hr class="docutils" />
+<p><a class="reference external" href="https://www.coursera.org/course/pgm">Link</a></p>
+<p>Particulary these videos:</p>
+<p>0103 Distributions - Probabilistic Graphical Models - Pro</p>
+<p>0104 - Factors - Probabilistic Graphical Models - Professor</p>
+<p>0203 - Flow of Probabilistic Influence - Probabilistic Grap</p>
+<p>0204 - Conditional Independence - Probabilistic Graphical M</p>
+<p>0205 - Independencies in Bayesian Networks - Probabilistic</p>
+<p>0206 - Naive Bayes - Probabilistic Graphical Models - Profe</p>
+<p>0301 - Overview of Template Models - Probabilistic Graphica</p>
+<p>0302 - Temporal Models - Probabilistic Graphical Models - P</p>
+<p>0303 - Temporal Models - HMMs - Probabilistic Graphical Mod</p>
+<p>0601 - Pairwise Markov Networks- Probabilistic Graphical Mo</p>
+<p>0602 - General Gibbs Distribution- Probabilistic Graphical</p>
+<p>0603 - Conditional Random Fields- Probabilistic Graphical M</p>
+<p>0801-Overview_Conditional Probability Queries-Probabilistic G</p>
+<p>0802 - Overview MAP Inference- Probabilistic Graphical Mod</p>
+<p>1102 - Finding a MAP Assignment- Probabilistic Graphical M</p>
+<p>1201 - Tractable MAP Problem-Probabilistic Graphical Model</p>
+<p>1801 Maximum Likelihood Estimation-Probabilistic Graphical M</p>
+<p>1802-Maximum Likelihood Estimation for Bayesian Networks-Pro</p>
+<p>1803 Bayesian Estimation -Probabilistic Graphical Models-Pro</p>
+<p>1902-Maximum Likelihood for Conditional Random Fields-Probab</p>
+<p>1903 MAP Estimation for MRFs and CRFs-Probabilistic Graphica</p>
+<p>Source:  University of Heidelberg</p>
+<hr class="docutils" />
+<p>Link <a class="reference external" href="http://www.youtube.com/watch?v=NOXTvnCGhRM">http://www.youtube.com/watch?v=NOXTvnCGhRM</a></p>
+<p>8.4 Max-Flow _ Min-Cut _ Image Analysis Class 2013.mp4</p>
+<p>8.5 Graph Cuts _ Image Analysis Class 2013.mp4</p>
+<p>9.1 Kernel Density Estimation _ 9 Unsupervised Learning _ Pa</p>
+<p>From Universities in China and India:</p>
+<hr class="docutils" />
+<p>Fast Approximate Energy Minimization via Graph Cut</p>
+<p>Introduction to Graph Cut</p>
+<p>Mod-05 Lec-31 Network flows Max flow mincut theorem</p>
+<p>From Some Polisci Professor</p>
+<hr class="docutils" />
+<p>Link <a class="reference external" href="http://www.youtube.com/watch?v=30yDDzLGviM">http://www.youtube.com/watch?v=30yDDzLGviM</a></p>
+<p>POLS 506 Bayesian and Nonparametric Stat. - Lecture 7 - Kernel Estimation</p>
+<p>From Mathematical Monk</p>
+<hr class="docutils" />
+<p>Link <a class="reference external" href="http://www.youtube.com/user/mathematicalmonk">http://www.youtube.com/user/mathematicalmonk</a></p>
+<p>(ML 11.1) Estimators</p>
+<p>(ML 11.2) Decision theory terminology in different contexts</p>
+<p>(ML 14.1) Markov models - motivating examples</p>
+<p>(ML 14.2) Markov chains (discrete-time) (part 1)</p>
+<p>(ML 14.3) Markov chains (discrete-time) (part 2)</p>
+<p>(ML 14.4) Hidden Markov models (HMMs) (part 1)</p>
+<p>(ML 14.5) Hidden Markov models (HMMs) (part 2)</p>
+<p>(ML 4.1) Maximum Likelihood Estimation (MLE) (part 1)</p>
+<p>(ML 4.2) Maximum Likelihood Estimation (MLE) (part 2)</p>
+<p>(ML 6.1) Maximum a posteriori (MAP) estimation</p>
+<p>(ML 6.2) MAP for univariate Gaussian mean</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Python_Saass&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#example">Example:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="src/statistics/statisticalelements/code.html"
+                        title="next chapter">Statistical Elements:</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="src/statistics/statisticalelements/code.html" title="Statistical Elements:"
+             >next</a> |</li>
+        <li><a href="#">Python_Saass 0.777 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

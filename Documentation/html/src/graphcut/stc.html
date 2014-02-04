@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ST Cut &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../index.html" />
+    <link rel="up" title="Graph Cut:" href="code.html" />
+    <link rel="next" title="Perform Graph Cut" href="pgc.html" />
+    <link rel="prev" title="Boykov Kolmogorov Cut" href="bkc.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pgc.html" title="Perform Graph Cut"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bkc.html" title="Boykov Kolmogorov Cut"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Graph Cut:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-STCut">
+<span id="st-cut"></span><h1>ST Cut<a class="headerlink" href="#module-STCut" title="Permalink to this headline">¶</a></h1>
+<p>This class is the main interface for executing the 
+graph cut algorithm given by Boykov and Kolmogorov.</p>
+<dl class="class">
+<dt id="STCut.STCut">
+<em class="property">class </em><tt class="descclassname">STCut.</tt><tt class="descname">STCut</tt><big>(</big><em>framework</em><big>)</big><a class="headerlink" href="#STCut.STCut" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is the main interface for executing the 
+graph cut algorithm given by Boykov and Kolmogorov.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="28%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>graph</td>
+<td>BoykovKolmogorovGraph</td>
+<td>Python implementation of Graph Cut algorithm</td>
+</tr>
+<tr class="row-even"><td>framework</td>
+<td>GraphCutFramework</td>
+<td>Coordinates Image Observations with regional
+and boundary estimators</td>
+</tr>
+<tr class="row-odd"><td>nodes</td>
+<td>list</td>
+<td>Array of nodes in the graph</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="STCut.STCut.construct_graph_edges">
+<tt class="descname">construct_graph_edges</tt><big>(</big><big>)</big><a class="headerlink" href="#STCut.STCut.construct_graph_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the graph edges from data in the framework</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="STCut.STCut.cut_graph">
+<tt class="descname">cut_graph</tt><big>(</big><big>)</big><a class="headerlink" href="#STCut.STCut.cut_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes Max Flow/Min Cut algorithm</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="STCut.STCut.execute_cut">
+<tt class="descname">execute_cut</tt><big>(</big><big>)</big><a class="headerlink" href="#STCut.STCut.execute_cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a segmentation from inputs</p>
+<p>Accepts the graph, nodes,and framework
+and goes through all of the steps of 
+creating a segmentation.</p>
+<ol class="arabic simple">
+<li>Initialization</li>
+<li>Creating Edges</li>
+<li>Finding the MaxFlow/MinCut</li>
+<li>Returning the Paritioned sapace</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>nparray</strong> :</p>
+<blockquote class="last">
+<div><p>Segmentation of the original image</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="STCut.STCut.get_result_partition">
+<tt class="descname">get_result_partition</tt><big>(</big><big>)</big><a class="headerlink" href="#STCut.STCut.get_result_partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the result of the Graph Cut</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>nparray :</strong> :</p>
+<blockquote class="last">
+<div><p>Partitioned graph</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="STCut.STCut.update_graph">
+<tt class="descname">update_graph</tt><big>(</big><big>)</big><a class="headerlink" href="#STCut.STCut.update_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates all link costs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="STCut.STCut.update_st_link">
+<tt class="descname">update_st_link</tt><big>(</big><em>node</em>, <em>f_w_s</em>, <em>f_w_t</em><big>)</big><a class="headerlink" href="#STCut.STCut.update_st_link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets link costs from framework and adds them to graph</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>node</strong> : Node</p>
+<blockquote>
+<div><p>Node being updated</p>
+</div></blockquote>
+<p><strong>f_w_s :</strong> :</p>
+<blockquote>
+<div><p>Cost to source</p>
+</div></blockquote>
+<p><strong>f_w_s :</strong> :</p>
+<blockquote class="last">
+<div><p>Cost to sink</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bkc.html"
+                        title="previous chapter">Boykov Kolmogorov Cut</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pgc.html"
+                        title="next chapter">Perform Graph Cut</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/graphcut/stc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pgc.html" title="Perform Graph Cut"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bkc.html" title="Boykov Kolmogorov Cut"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Graph Cut:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

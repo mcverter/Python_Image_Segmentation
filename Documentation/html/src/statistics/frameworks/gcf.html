@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Graph Cut Framework &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Frameworks" href="code.html" />
+    <link rel="next" title="Boykov Framework" href="bkf.html" />
+    <link rel="prev" title="Frameworks" href="code.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bkf.html" title="Boykov Framework"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="Frameworks"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Frameworks</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-GraphCutFramework">
+<span id="graph-cut-framework"></span><h1>Graph Cut Framework<a class="headerlink" href="#module-GraphCutFramework" title="Permalink to this headline">¶</a></h1>
+<p>A GraphCutFramework coordinates together
+(1)  The pixel intensity observations taken from the original image
+(2) The object seeds given at startup
+(3) The background seeds given at startup
+(4) The estimation model for the source region
+(5) The estimation model for the sink region
+(6) The estimation model for the boundary between these two regions</p>
+<dl class="class">
+<dt id="GraphCutFramework.GraphCutFramework">
+<em class="property">class </em><tt class="descclassname">GraphCutFramework.</tt><tt class="descname">GraphCutFramework</tt><big>(</big><em>image_interface</em>, <em>estimator</em>, <em>crf_lambda</em><big>)</big><a class="headerlink" href="#GraphCutFramework.GraphCutFramework" title="Permalink to this definition">¶</a></dt>
+<dd><p>A GraphCutFramework coordinates together
+(1)  The pixel intensity observations taken from the original image
+(2) The object seeds given at startup
+(3) The background seeds given at startup
+(4) The estimation model for the source region
+(5) The estimation model for the sink region
+(6) The estimation model for the boundary between these two regions</p>
+<p>The processing done by this framework is fed into the 
+Boykov-Kolmogorov Graph Cut Energy Minimization algorithm  
+in order to delineate target segments from non-target segments.</p>
+<p>The GraphCutFraumework is an abstract class and should never be instantiated as an object
+Instead, one should use the MAP_CRF_Framework or the BoykovFramework</p>
+<p class="rubric">Attributes</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="GraphCutFramework.GraphCutFramework.get_n_link_cost">
+<tt class="descname">get_n_link_cost</tt><big>(</big><em>x_1</em>, <em>y_1</em>, <em>x_2</em>, <em>y_2</em><big>)</big><a class="headerlink" href="#GraphCutFramework.GraphCutFramework.get_n_link_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the neighbor link between two nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_1, y_1, x_2, y_2</strong> : int</p>
+<blockquote>
+<div><p>Indexes of the two nodes</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote>
+<div><p>Cost of link between the nodes</p>
+</div></blockquote>
+<p><strong>Raises</strong> :</p>
+<p><strong>&#8212;&#8211;</strong> :</p>
+<p><strong>NotImplementedError</strong> :</p>
+<blockquote class="last">
+<div><p>This is an abstract method which must 
+be implemented by subclasses</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GraphCutFramework.GraphCutFramework.get_neighbor_link_cost">
+<tt class="descname">get_neighbor_link_cost</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#GraphCutFramework.GraphCutFramework.get_neighbor_link_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cost of the neighbor link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Indexes of the node</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote>
+<div><p>Cost of link</p>
+</div></blockquote>
+<p><strong>Raises</strong> :</p>
+<p><strong>&#8212;&#8211;</strong> :</p>
+<p><strong>NotImplementedError</strong> :</p>
+<blockquote class="last">
+<div><p>This is an abstract method which must 
+be implemented by subclasses</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GraphCutFramework.GraphCutFramework.get_neighbor_nodes">
+<tt class="descname">get_neighbor_nodes</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#GraphCutFramework.GraphCutFramework.get_neighbor_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the neighboring nodes to a node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Indexes of the node</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>list:</strong> :</p>
+<blockquote class="last">
+<div><p>List of Neighboring Nodes</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GraphCutFramework.GraphCutFramework.get_st_link_cost">
+<tt class="descname">get_st_link_cost</tt><big>(</big><em>xxx</em>, <em>yyy</em><big>)</big><a class="headerlink" href="#GraphCutFramework.GraphCutFramework.get_st_link_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the cost between the node and the source and sink</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Indexes of the node</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>int</strong> :</p>
+<blockquote>
+<div><p>Cost of link to source</p>
+</div></blockquote>
+<p><strong>int</strong> :</p>
+<blockquote class="last">
+<div><p>Cost of link to sink</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GraphCutFramework.GraphCutFramework.get_update_st_link_costs">
+<tt class="descname">get_update_st_link_costs</tt><big>(</big><big>)</big><a class="headerlink" href="#GraphCutFramework.GraphCutFramework.get_update_st_link_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the links between all the nodes and the source and sink</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="code.html"
+                        title="previous chapter">Frameworks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bkf.html"
+                        title="next chapter">Boykov Framework</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/frameworks/gcf.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bkf.html" title="Boykov Framework"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="Frameworks"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Frameworks</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

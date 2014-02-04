@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MAP CRF Estimator &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../../index.html" />
+    <link rel="up" title="Estimators:" href="code.html" />
+    <link rel="next" title="Frameworks" href="../frameworks/code.html" />
+    <link rel="prev" title="Non-Parametric Estimator" href="npe.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../frameworks/code.html" title="Frameworks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="npe.html" title="Non-Parametric Estimator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-MapCrfEstimator">
+<span id="map-crf-estimator"></span><h1>MAP CRF Estimator<a class="headerlink" href="#module-MapCrfEstimator" title="Permalink to this headline">¶</a></h1>
+<p>The MAP CRF Estimator produces regional and boundary 
+estimates for the graph cut using the 
+Maximum a Prioris and Conditional Random Fields</p>
+<dl class="class">
+<dt id="MapCrfEstimator.MapCrfEstimator">
+<em class="property">class </em><tt class="descclassname">MapCrfEstimator.</tt><tt class="descname">MapCrfEstimator</tt><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>The MAP CRF Estimator produces regional and boundary 
+estimates for the graph cut using the 
+Maximum a Prioris and Conditional Random Fields</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="38%" />
+<col width="45%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>source_estimator</td>
+<td>NonParametricProbabilityDensityEstimator</td>
+<td>For estimating the object region</td>
+</tr>
+<tr class="row-even"><td>sink_estimator</td>
+<td>NonParametricProbabilityDensityEstimator</td>
+<td>For estimating the background region</td>
+</tr>
+<tr class="row-odd"><td>boundary_estimator</td>
+<td>NonParametricProbabilityDensityEstimator</td>
+<td>For estimating the  the boundary between the two</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="MapCrfEstimator.MapCrfEstimator.estimate_sink_region">
+<tt class="descname">estimate_sink_region</tt><big>(</big><em>feature</em><big>)</big><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator.estimate_sink_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the feature&#8217;s possiblity of belonging to the sink region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>feature</strong> : float</p>
+<blockquote>
+<div><p>Value feature</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float :</strong> :</p>
+<blockquote class="last">
+<div><p>Probability that it belongs to the source region</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MapCrfEstimator.MapCrfEstimator.estimate_source_region">
+<tt class="descname">estimate_source_region</tt><big>(</big><em>feature</em><big>)</big><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator.estimate_source_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates feature&#8217;s likelihood of belonging to the source
+Parameters
+&#8212;&#8212;&#8212;-
+feature : float</p>
+<blockquote>
+<div>Value feature</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float :</strong> :</p>
+<blockquote class="last">
+<div><p>Probability that it belongs to the source region</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MapCrfEstimator.MapCrfEstimator.get_boundary">
+<tt class="descname">get_boundary</tt><big>(</big><em>features_1</em>, <em>features_2</em><big>)</big><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator.get_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the likelihood of a boundary occuring between two features</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>feature_1, feature_2</strong> : float</p>
+<blockquote>
+<div><p>Values of two adjacent features</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float :</strong> :</p>
+<blockquote class="last">
+<div><p>Probability that there is a boundary</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MapCrfEstimator.MapCrfEstimator.initialize">
+<tt class="descname">initialize</tt><big>(</big><em>source_estimator</em>, <em>sink_estimator</em>, <em>boundary_estimator</em><big>)</big><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes member variables with existing estimators</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>source_estimator</strong> : NonParametricProbabilityDensityEstimator</p>
+<blockquote>
+<div><p>For estimating the object region</p>
+</div></blockquote>
+<p><strong>sink_estimator</strong> : NonParametricProbabilityDensityEstimator</p>
+<blockquote>
+<div><p>For estimating the background region</p>
+</div></blockquote>
+<p><strong>boundary_estimator</strong> : NonParametricProbabilityDensityEstimator</p>
+<blockquote class="last">
+<div><p>For estimating the  the boundary between the two</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MapCrfEstimator.MapCrfEstimator.set_sink_estimator">
+<tt class="descname">set_sink_estimator</tt><big>(</big><em>estimator</em><big>)</big><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator.set_sink_estimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the sink region estimator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sink_estimator</strong> : NonParametricProbabilityDensityEstimator</p>
+<blockquote class="last">
+<div><p>For estimating the background region</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MapCrfEstimator.MapCrfEstimator.set_source_estimator">
+<tt class="descname">set_source_estimator</tt><big>(</big><em>estimator</em><big>)</big><a class="headerlink" href="#MapCrfEstimator.MapCrfEstimator.set_source_estimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the source region estimator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>source_estimator</strong> : NonParametricProbabilityDensityEstimator</p>
+<blockquote class="last">
+<div><p>For estimating the object region</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="npe.html"
+                        title="previous chapter">Non-Parametric Estimator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../frameworks/code.html"
+                        title="next chapter">Frameworks</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/src/statistics/estimators/mce.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../frameworks/code.html" title="Frameworks"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="npe.html" title="Non-Parametric Estimator"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Estimators:</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

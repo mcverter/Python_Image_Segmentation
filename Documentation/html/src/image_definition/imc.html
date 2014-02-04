@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Image Creator &mdash; Python_Saass 0.777 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.777',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Python_Saass 0.777 documentation" href="../../index.html" />
+    <link rel="up" title="Image Input and Output" href="code.html" />
+    <link rel="next" title="Threshold Tracker" href="ttt.html" />
+    <link rel="prev" title="Contour Tracer" href="cnt.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ttt.html" title="Threshold Tracker"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cnt.html" title="Contour Tracer"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" accesskey="U">Image Input and Output</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ImageCreator">
+<span id="image-creator"></span><h1>Image Creator<a class="headerlink" href="#module-ImageCreator" title="Permalink to this headline">¶</a></h1>
+<p>Post Processing after the implementation of the
+Graph Cut</p>
+<p>Takes the resulting segmentation and converts it to
+an image</p>
+<dl class="class">
+<dt id="ImageCreator.ImageCreator">
+<em class="property">class </em><tt class="descclassname">ImageCreator.</tt><tt class="descname">ImageCreator</tt><a class="headerlink" href="#ImageCreator.ImageCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post Processing after the implementation of the
+Graph Cut</p>
+<p>Takes the resulting segmentation and converts it to
+an image</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="28%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>threshold_tracker</td>
+<td>ThresholdTracker</td>
+<td>Finds contours of the image</td>
+</tr>
+<tr class="row-even"><td>binary_image_labeler</td>
+<td>BinaryImageLabeler</td>
+<td>Finds connected components</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ImageCreator.ImageCreator.clean_contours">
+<tt class="descname">clean_contours</tt><big>(</big><em>contours</em><big>)</big><a class="headerlink" href="#ImageCreator.ImageCreator.clean_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes inner points from contours</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>contours</strong> : nparray</p>
+<blockquote class="last">
+<div><p>Contours of segmentation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageCreator.ImageCreator.construct_image">
+<tt class="descname">construct_image</tt><big>(</big><em>partition</em><big>)</big><a class="headerlink" href="#ImageCreator.ImageCreator.construct_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructs an image based upon graph cut output</p>
+<p>Displays and saves image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>partition</strong> : nparray</p>
+<blockquote class="last">
+<div><p>Result from Graph Cut</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageCreator.ImageCreator.draw_image">
+<tt class="descname">draw_image</tt><big>(</big><em>cleaned_contours</em><big>)</big><a class="headerlink" href="#ImageCreator.ImageCreator.draw_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>cleaned_contours</strong> : nparray</p>
+<blockquote class="last">
+<div><p>Processed graphcut output</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageCreator.ImageCreator.is_point_inside">
+<tt class="descname">is_point_inside</tt><big>(</big><em>xxx</em>, <em>yyy</em>, <em>point_array</em><big>)</big><a class="headerlink" href="#ImageCreator.ImageCreator.is_point_inside" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects whether point is inside edge</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>xxx, yyy</strong> : int</p>
+<blockquote>
+<div><p>Coordinates of point</p>
+</div></blockquote>
+<p><strong>point_array</strong> : nparray</p>
+<blockquote class="last">
+<div><p>All points in image</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageCreator.ImageCreator.mask_partition">
+<tt class="descname">mask_partition</tt><big>(</big><em>partition</em><big>)</big><a class="headerlink" href="#ImageCreator.ImageCreator.mask_partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts partition to binary graph</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>partition</strong> : nparray</p>
+<blockquote>
+<div><p>Graphcut output</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>nparray</strong> :</p>
+<blockquote class="last">
+<div><p>Binary valued matrix</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ImageCreator.ImageCreator.save_segmented_image">
+<tt class="descname">save_segmented_image</tt><big>(</big><em>cleaned_contours</em><big>)</big><a class="headerlink" href="#ImageCreator.ImageCreator.save_segmented_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>cleaned_contours</strong> : nparray</p>
+<blockquote class="last">
+<div><p>Processed graphcut output</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cnt.html"
+                        title="previous chapter">Contour Tracer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ttt.html"
+                        title="next chapter">Threshold Tracker</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/image_definition/imc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ttt.html" title="Threshold Tracker"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cnt.html" title="Contour Tracer"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Python_Saass 0.777 documentation</a> &raquo;</li>
+          <li><a href="code.html" >Image Input and Output</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Mitchell Verter.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
